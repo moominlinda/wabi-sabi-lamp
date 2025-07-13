@@ -72,4 +72,4 @@ with gr.Blocks() as demo:
 
     btn.click(fn=process, inputs=[image_input], outputs=[csv_output, html_output])
 
-demo.launch(server_name="0.0.0.0", server_port=10000)
+demo.launch(server_name="0.0.0.0", server_port=10000, show_error=True, share=True)
