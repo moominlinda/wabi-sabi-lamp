@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>模擬檯燈亮度與色彩</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+  <h1>模擬檯燈亮度與色彩</h1>
+  <p>請上傳一份包含亮度比例的 CSV 檔，系統會自動模擬閃爍動畫。</p>
+  <input type="file" id="csvInput" accept=".csv">
+  <p id="status" style="color: #facc15; font-weight: bold;"></p>
+  <div id="container">
+    <img id="bg" src="lamp.png" />
+    <div id="lamp"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

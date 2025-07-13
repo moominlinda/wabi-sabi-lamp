@@ -1,0 +1,39 @@
+
+/* 整體頁面設定 */
+body {
+  background: #111;       /* 背景為深黑色 */
+  color: white;           /* 文字顏色為白色 */
+  font-family: sans-serif;/* 使用無襯線字體 */
+  text-align: center;     /* 文字置中 */
+  padding: 40px;          /* 四周內距 */
+}
+
+/* 圖片與燈光容器設定 */
+#container {
+  position: relative;     /* 使內部絕對定位的元件以它為參考 */
+  display: inline-block;  /* 讓圖片與光圈可並排顯示 */
+  max-width: 90%;         /* 限制容器寬度 */
+}
+
+/* 背景圖片設定 */
+#bg {
+  width: 100%;            /* 滿版寬度 */
+  height: auto;           /* 高度等比縮放 */
+  display: block;         /* 去除圖片底下空白 */
+}
+
+/* 檯燈光圈設定 */
+#lamp {
+  position: absolute;     /* 絕對定位於 container 中 */
+  left: 62%;              /* 水平位置（右偏） */
+  top: 30%;               /* 垂直位置（上偏） */
+  width: 24%;             /* 光圈寬度為容器 24% */
+  aspect-ratio: 1.6;      /* 寬高比例為 1.6 */
+  border-radius: 55% / 30%; /* 橢圓形狀的光圈 */
+  background: radial-gradient(circle, rgba(255,248,212,1) 0%, rgba(255,248,212,0.6) 60%, rgba(255,248,212,0) 100%);
+                          /* 從中心往外淡出、柔光色調 */
+  filter: blur(14px);     /* 柔光模糊效果 */
+  transition: opacity 0.5s ease; /* 亮度漸變過渡 */
+  pointer-events: none;   /* 不可被滑鼠點擊 */
+  opacity: 0;             /* 初始為完全透明 */
+}

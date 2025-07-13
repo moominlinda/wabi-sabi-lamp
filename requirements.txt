@@ -1,0 +1,7 @@
+gradio
+opencv-python
+opencv-contrib-python
+ultralytics
+pandas
+matplotlib
+Pillow
