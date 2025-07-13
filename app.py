@@ -26,7 +26,6 @@ def generate_csv(image):
     h, w = gray.shape
     mask = center_weight_mask(h, w)
     level = (gray / 255.0 * 9).astype(int)
-
     proportions = mask / mask.sum()
     data = []
 
@@ -60,16 +59,25 @@ def process(image):
     html_content = generate_animation_site(csv_path)
     return csv_path, html_content
 
+# 初始預覽動畫（尚未上傳圖片時的預設動畫畫面）
+with open("lamp_template/index.html", "r") as f:
+    default_html = f.read()
+
 with gr.Blocks() as demo:
     gr.Markdown("# 🪔 Wabi-Sabi Mosaic → Lamp Animation")
+
     with gr.Row():
         with gr.Column():
             image_input = gr.Image(type="pil", label="上傳圖片")
             btn = gr.Button("產生動畫")
+
         with gr.Column():
             csv_output = gr.File(label="CSV 檔案")
-            html_output = gr.HTML(label="動畫預覽")
+            html_output = gr.HTML(default_html, label="動畫預覽")
 
     btn.click(fn=process, inputs=[image_input], outputs=[csv_output, html_output])
 
-demo.launch(server_name="0.0.0.0", server_port=10000, show_error=True, share=True)
+if __name__ == "__main__":
+    import os
+    port = int(os.environ.get("PORT", 10000))
+    demo.launch(server_name="0.0.0.0", server_port=port, share=True, show_error=True)
